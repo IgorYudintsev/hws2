@@ -10,6 +10,10 @@ import s from './HW7.module.css'
 * 3 - в файле SuperRadio.tsx дописать name, checked, value (узнать для чего в радио name)
 * 4 - сделать стили в соответствии с дизайном
 * */
+export type arrType={
+    id: number
+    value: string
+}
 
 const arr = [
     { id: 1, value: 'x' },
@@ -19,6 +23,7 @@ const arr = [
 
 const HW7 = () => {
     const [value, onChangeOption] = useState(1) // селект и радио должны работать синхронно
+    console.log(value)
 
     return (
         <div id={'hw7'}>
