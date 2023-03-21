@@ -34,19 +34,16 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
-                console.log(res)
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
                 setText(res.data.errorText)
                 setInfo(res.data.info)
-
             })
             .catch((e) => {
-                console.log(e)
                 // дописать
-                setText(e.response.data.errorText || e.message)
-                setInfo(e.response.data.info || e.name)
+                setText(e.response?.data?.errorText || e.message)
+                setInfo(e.response?.data?.info || e.name)
 
                 switch (e.response?.status) {
                     case 400: {
@@ -64,9 +61,9 @@ const HW13 = () => {
                         setImage(errorUnknown)
                     }
                 }
-
             })
     }
+
 
     return (
         <div id={'hw13'}>
@@ -102,7 +99,7 @@ const HW13 = () => {
                     >
                         Send undefined
                     </SuperButton>
-                    <SuperButton
+                                   <SuperButton
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
@@ -111,6 +108,7 @@ const HW13 = () => {
                     >
                         Send null
                     </SuperButton>
+
                 </div>
 
                 <div className={s.responseContainer}>
